@@ -1,11 +1,15 @@
 package com.Layout.CadastroDeTarefas.Domain.Models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Task
 {
     private Long id;
     private String name;
+
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private Date data;
 
     public Task(Long id, String name, Date data) {
