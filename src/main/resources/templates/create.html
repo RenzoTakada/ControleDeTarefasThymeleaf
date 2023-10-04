@@ -10,16 +10,16 @@
     <link rel= "stylesheet" href="css/style.css">
 </head>
 <body>
-<form method="POST" action="/create">
+<form method="POST" action="/create" th:object="${task}">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Nome da tarefa</label>
-        <input type="text" class="form-control" name="name">
+        <input type="text" class="form-control" name="name" th:value = "${task.getName()}">
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Data de Execução</label>
-        <input type="text" class="form-control" name="data">
+        <input type="text" class="form-control" name="data" th:value = "${task.getData()}">
     </div>
-    <button type="submit" class="btn btn-primary">Cadastrat</button>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
 </body>
 </html>

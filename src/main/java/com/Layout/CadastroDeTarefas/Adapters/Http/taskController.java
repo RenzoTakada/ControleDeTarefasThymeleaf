@@ -3,6 +3,7 @@ package com.Layout.CadastroDeTarefas.Adapters.Http;
 import com.Layout.CadastroDeTarefas.Domain.Models.Task;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.stylesheets.LinkStyle;
@@ -32,5 +33,13 @@ public class taskController {
         var mv = new ModelAndView("List");
         mv.addObject("tasks",tasks);
         return mv;
+    }
+    @GetMapping("/edit/{id}")
+    public ModelAndView edit(@PathVariable("id")Long id){
+        var mv = new ModelAndView("create");
+        var retFind = tasks.stream().filter(task -> id.equals(task.getId())).findFirst().get();
+        mv.addObject("task",retFind);
+        return mv;
+
     }
 }

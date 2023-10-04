@@ -16,6 +16,7 @@
         <th scope="col">#</th>
         <th scope="col">Nome da Tarefa</th>
         <th scope="col">Data de Execução</th>
+        <th scope="col">#</th>
     </tr>
     </thead>
     <tbody>
@@ -23,6 +24,9 @@
         <td data-th-text = "${task.getId()}"></td>
         <td data-th-text = "${task.getName()}"></td>
         <td data-th-text = "${{task.getData()}}"></td>
+        <td>
+            <a th:href="@{'/edit/'+${task.getId()}}">Editar</a>
+        </td>
     </tr>
     </tbody>
 </table>
